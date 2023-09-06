@@ -1,6 +1,5 @@
 import libro as l
 
-
 # Crear una lista vacía para almacenar los libros
 libros = [l.libro1,l.libro2,l.libro3]
 
@@ -9,13 +8,6 @@ libros.append(l.libro1)
 libros.append(l.libro2)
 libros.append(l.libro3)
 
-
-
-
-
-
-
-
 def ejemplares_prestados(libro_actual):
     if libro_actual['cant_ej_ad'] <= 0:
         print("NO QUEDAN EJEMPLARES PARA PRESTAR")
@@ -23,19 +15,11 @@ def ejemplares_prestados(libro_actual):
     elif libro_actual['cant_ej_ad'] > 0:
         print("QUEDAN EJEMPLARES")
 
-        
-
-    
-
-
 def registrar_nuevo_libro(autor, titulo, cant_ej_adquiridos):
     nuevo_libro = l.nuevo_libro(autor, titulo, cant_ej_adquiridos)
     libros.append(nuevo_libro)
     print(libros)
     
-        
-
-
 def eliminar_ejemplar_libro(codigo):
     for libro_actual in libros:
         if codigo == libro_actual['cod']:
@@ -48,14 +32,7 @@ def eliminar_ejemplar_libro(codigo):
             else:
                 print("No hay libros para eliminar ")
                 break    
-        
-                  
-
-              
-                
-
-
-
+    
 def prestar_ejemplar_libro(codigo, lista_libros):
     #completar
     
@@ -73,9 +50,6 @@ def prestar_ejemplar_libro(codigo, lista_libros):
                 print("No hay libros disponibles")
                 break    
 
-
-
-
                     
 def devolver_ejemplar_libro(codigo):
     for libro_actual in libros:
@@ -91,8 +65,6 @@ def devolver_ejemplar_libro(codigo):
                 break
 
 
-
-
 def mostrar_ejemplares_prestados():
     libros_prestados = []
     for libro_actual in libros:
@@ -106,15 +78,14 @@ def mostrar_ejemplares_prestados():
 
     if not libros_prestados:
         print("No hay ejemplares prestados de ningún libro.")
-            
-            
-                
-
-
-#def nuevo_libro():
-    
-    #return None
-
+ 
+""" 
+def nuevo_libro():
+    Esta funcion no la utilizamos ya que usamos la misma funcion nuevo_libro en el modulo de "Libro.py"...
+    La funcion biblioteca.registrar_nuevo_libro(autor, titulo, cant_ej_adquiridos) recibe los 3 parametros y estos mismos parametros los utilizamos para asignar
+    autor, titulo y cantidad de ejemplares adquiridos
+    return None
+"""  
 
 
 

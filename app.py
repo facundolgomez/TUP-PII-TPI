@@ -6,11 +6,6 @@ import libro
 import biblioteca
 
 
-       
-    
-
-
-
 def encontrar_libro(codigo):
     # Accede a los diccionarios de libros desde el módulo "libro"
     libros = [libro.libro1, libro.libro2, libro.libro3]
@@ -40,20 +35,6 @@ def encontrar_libro(codigo):
         else:
             print("No existe el codigo de ese libro")
             break     
-
-
-
-
-
-
-
-        
-
-
-
-   
-        
-
 
 print("Bienvenido!")
 respuesta = ''

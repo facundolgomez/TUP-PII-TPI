@@ -5,11 +5,9 @@ libro3 = {'cod': 'adOd09UE', 'cant_ej_ad': 1, 'cant_ej_pr': 0, "titulo": "El có
 
 from cod_generator import generar
 
-
 def generar_codigo():
     codigo_generado = generar()
     return codigo_generado
-
 
 def nuevo_libro(autor, titulo, cant_ej_adquiridos):
     codigo = generar_codigo()  # Genera un código para el nuevo libro
