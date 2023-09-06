@@ -2,6 +2,48 @@
 
 
 import os
+import libro
+import biblioteca
+
+
+       
+    
+
+
+
+def encontrar_libro(codigo):
+    # Accede a los diccionarios de libros desde el módulo "libro"
+    libros = [libro.libro1, libro.libro2, libro.libro3]
+    
+    for libro_actual in libros:
+        if codigo == libro_actual['cod']:
+            print(f"Autor: {libro_actual['autor']}")
+            print(f"Título: {libro_actual['titulo']}")
+            print(f"Cantidad de ejemplares disponibles: {libro_actual['cant_ej_ad']}")
+
+            biblioteca.ejemplares_prestados(libro_actual)
+
+            confirmacion = int(input(f"Desea confirmar la adquisicion del libro {libro_actual['titulo']}, 1 para confirmar el prestamo, 0 para salir "))
+            while confirmacion != 1 and confirmacion != 0:
+                print("Ingrese 1 o 0")
+                confirmacion = int(input())
+
+            if confirmacion == 1:
+                biblioteca.prestar_ejemplar_libro(codigo,libro_actual)
+                
+                
+            else:
+                print("Operacion cancelada")       
+            
+            break
+
+        else:
+            print("No existe el codigo de ese libro")
+            break     
+
+   
+        
+
 
 print("Bienvenido!")
 respuesta = ''
@@ -11,7 +53,7 @@ def menu():
     print("2 - Gestionar Devolucion")
     print("3 - Registrar nuevo libro")
     print("4 - Elimiar ejemplar")
-    print("5 - Mostrar ejemplares perstados")
+    print("5 - Mostrar ejemplares prestados")
     print("6 - Salir")
 
 while respuesta != "salir":
@@ -21,13 +63,19 @@ while respuesta != "salir":
     if opt.isnumeric():
         if int(opt) == 1:
             #completar
-            print()
+            codigo = input("Ingrese el codigo del libro ")
+            encontrar_libro(codigo)
         elif int(opt) == 2:
             #completar
-            print()
+            codigo = input("Ingrese el codigo del libro que quiere devolver ")
+            biblioteca.devolver_ejemplar_libro(codigo)
+
         elif int(opt) == 3:
-            #completar
-            print()
+            autor = input("Ingrese el autor del libro ")
+            titulo = input("Ingrese el titulo del libro ")
+            cant_ej_adquiridos = int(input("Ingrese la cantidad de ejemplares adquiridos "))
+            biblioteca.registrar_nuevo_libro(autor, titulo, cant_ej_adquiridos)
+            
         elif int(opt) == 4:
             #completar
             print()
@@ -43,3 +91,18 @@ while respuesta != "salir":
     input("Presione cualquier tecla para continuar....") # Pausa
 
 print("Hasta luego!.")
+
+
+
+
+
+
+
+
+
+
+
+
+           
+
+
