@@ -70,18 +70,16 @@ def devolver_ejemplar_libro(codigo):
 
 
 def mostrar_ejemplares_prestados():
-    libros_prestados = []
+    hay_ejemplares_prestados = False  
+    
     for libro_actual in libros:
         if libro_actual['cant_ej_pr'] > 0:
-            if libro_actual['titulo'] not in libros_prestados:
-                libros_prestados.append(libro_actual['titulo'])
-                print(f"Libro: {libro_actual['titulo']}, Cantidad de ejemplares prestados: {libro_actual['cant_ej_pr']}")
-        
-        else:
             print(f"Libro: {libro_actual['titulo']}, Cantidad de ejemplares prestados: {libro_actual['cant_ej_pr']}")
-
-    if not libros_prestados:
+            hay_ejemplares_prestados = True  
+    
+    if not hay_ejemplares_prestados:
         print("No hay ejemplares prestados de ningún libro.")
+
  
 """ 
 def nuevo_libro():
