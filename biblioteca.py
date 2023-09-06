@@ -8,6 +8,8 @@ libros.append(l.libro1)
 libros.append(l.libro2)
 libros.append(l.libro3)
 
+#Funcion que verifica si quedan ejemplares o no.
+
 def ejemplares_prestados(libro_actual):
     if libro_actual['cant_ej_ad'] <= 0:
         print("NO QUEDAN EJEMPLARES PARA PRESTAR")
@@ -19,7 +21,9 @@ def registrar_nuevo_libro(autor, titulo, cant_ej_adquiridos):
     nuevo_libro = l.nuevo_libro(autor, titulo, cant_ej_adquiridos)
     libros.append(nuevo_libro)
     print(libros)
-    
+
+#Funcion para eliminar ejemplares. 
+
 def eliminar_ejemplar_libro(codigo):
     for libro_actual in libros:
         if codigo == libro_actual['cod']:
@@ -33,8 +37,8 @@ def eliminar_ejemplar_libro(codigo):
                 print("No hay libros para eliminar ")
                 break    
     
+
 def prestar_ejemplar_libro(codigo, lista_libros):
-    #completar
     
     for libro_actual in libros:
         
