@@ -43,7 +43,7 @@ def menu():
     print("1 - Gestionar Prestamo")
     print("2 - Gestionar Devolucion")
     print("3 - Registrar nuevo libro")
-    print("4 - Elimiar ejemplar")
+    print("4 - Eliminar ejemplar")
     print("5 - Mostrar ejemplares prestados")
     print("6 - Salir")
 
@@ -76,7 +76,7 @@ while respuesta != "salir":
             biblioteca.registrar_nuevo_libro(autor, titulo, cant_ej_adquiridos)
             
         elif int(opt) == 4:
-            codigo = input("Ingrese el codigo del libro ")
+            codigo = input("Ingrese el codigo del libro que desea eliminar ")
             biblioteca.eliminar_ejemplar_libro(codigo)
         elif int(opt) == 5:
             biblioteca.mostrar_ejemplares_prestados()
