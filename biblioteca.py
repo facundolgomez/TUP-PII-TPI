@@ -36,10 +36,23 @@ def registrar_nuevo_libro(autor, titulo, cant_ej_adquiridos):
         
 
 
-def eliminar_ejemplar_libro():
-    #completar
-    return None
+def eliminar_ejemplar_libro(codigo):
+    for libro_actual in libros:
+        if codigo == libro_actual['cod']:
+            book = libro_actual['cant_ej_ad']
+            if book > 0:
+                libro_actual['cant_ej_ad'] -= 1
+                print(f"Se ha eliminado correctamente el libro {libro_actual['titulo']}")
+                break
 
+            else:
+                print("No hay libros para eliminar ")
+                break    
+        
+                  
+
+              
+                
 
 
 
@@ -80,12 +93,28 @@ def devolver_ejemplar_libro(codigo):
 
 
 
+def mostrar_ejemplares_prestados():
+    libros_prestados = []
+    for libro_actual in libros:
+        if libro_actual['cant_ej_pr'] > 0:
+            if libro_actual['titulo'] not in libros_prestados:
+                libros_prestados.append(libro_actual['titulo'])
+                print(f"Libro: {libro_actual['titulo']}, Cantidad de ejemplares prestados: {libro_actual['cant_ej_pr']}")
+        
+        else:
+            print(f"Libro: {libro_actual['titulo']}, Cantidad de ejemplares prestados: {libro_actual['cant_ej_pr']}")
+
+    if not libros_prestados:
+        print("No hay ejemplares prestados de ningún libro.")
+            
+            
+                
 
 
-
-def nuevo_libro():
+#def nuevo_libro():
     
-    return None
+    #return None
+
 
 
 

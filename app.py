@@ -41,6 +41,16 @@ def encontrar_libro(codigo):
             print("No existe el codigo de ese libro")
             break     
 
+
+
+
+
+
+
+        
+
+
+
    
         
 
@@ -71,17 +81,24 @@ while respuesta != "salir":
             biblioteca.devolver_ejemplar_libro(codigo)
 
         elif int(opt) == 3:
-            autor = input("Ingrese el autor del libro ")
-            titulo = input("Ingrese el titulo del libro ")
+            autor = input("Ingrese el autor del libro: ")
+            while autor == "":
+                print("No puede dejar este campo vacío. Por favor, ingrese un valor.")
+                autor = input("Autor:")
+            titulo = input("Ingrese el título del libro: ")
+            while titulo == "":
+                print("No puede dejar este campo vacío. Por favor, ingrese un valor.")
+                titulo = input("titulo:")
             cant_ej_adquiridos = int(input("Ingrese la cantidad de ejemplares adquiridos "))
+            while cant_ej_adquiridos <= 0:
+                cant_ej_adquiridos = int(input("Ingrese una cantidad valida "))
             biblioteca.registrar_nuevo_libro(autor, titulo, cant_ej_adquiridos)
             
         elif int(opt) == 4:
-            #completar
-            print()
+            codigo = input("Ingrese el codigo del libro ")
+            biblioteca.eliminar_ejemplar_libro(codigo)
         elif int(opt) == 5:
-            #completar
-            print()
+            biblioteca.mostrar_ejemplares_prestados()
         elif int(opt) == 6:
             respuesta = "salir"
         else: print("Ingrese una opción válida")
@@ -91,6 +108,7 @@ while respuesta != "salir":
     input("Presione cualquier tecla para continuar....") # Pausa
 
 print("Hasta luego!.")
+
 
 
 
